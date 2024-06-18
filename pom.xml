@@ -8,7 +8,7 @@
   <packaging>pom</packaging>
 
   <name>Lab-2</name>
-  <url>https://github.com/axterrr/java-lab1</url>
+  <url>https://github.com/axterrr/java-lab2</url>
 
   <modules>
     <module>converter-utils</module>
@@ -21,4 +21,46 @@
     <maven.compiler.source>21</maven.compiler.source>
     <maven.compiler.target>21</maven.compiler.target>
   </properties>
+
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-resources-plugin</artifactId>
+        <version>3.3.1</version>
+        <executions>
+          <execution>
+            <id>copy-resources-core</id>
+            <phase>compile</phase>
+            <goals>
+              <goal>copy-resources</goal>
+            </goals>
+            <configuration>
+              <outputDirectory>${project.basedir}/converter-core/src/main/resources</outputDirectory>
+              <resources>
+                <resource>
+                  <directory>${project.basedir}/converter-utils/src/main/resources</directory>
+                </resource>
+              </resources>
+            </configuration>
+          </execution>
+          <execution>
+            <id>copy-resources-app</id>
+            <phase>compile</phase>
+            <goals>
+              <goal>copy-resources</goal>
+            </goals>
+            <configuration>
+              <outputDirectory>${project.basedir}/converter-app/src/main/resources</outputDirectory>
+              <resources>
+                <resource>
+                  <directory>${project.basedir}/converter-utils/src/main/resources</directory>
+                </resource>
+              </resources>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+    </plugins>
+  </build>
 </project>
