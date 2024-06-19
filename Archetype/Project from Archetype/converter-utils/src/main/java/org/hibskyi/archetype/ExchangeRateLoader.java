@@ -1,4 +1,4 @@
-package org.hibskyi;
+package org.hibskyi.archetype;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;

@@ -1,0 +1,298 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+        
+  
+  
+  <modelVersion>4.0.0</modelVersion>
+        
+  
+  
+  <groupId>org.hibskyi.archetype</groupId>
+        
+  
+  
+  <artifactId>project-from-archetype</artifactId>
+        
+  
+  
+  <version>1.0-SNAPSHOT</version>
+        
+  
+  
+  <packaging>pom</packaging>
+        
+  
+  
+  <name>Lab-2</name>
+        
+  
+  
+  <url>https://github.com/axterrr/java-lab2</url>
+        
+  
+  
+  <properties>
+                
+    
+    
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+                
+    
+    
+    <maven.compiler.source>21</maven.compiler.source>
+                
+    
+    
+    <maven.compiler.target>21</maven.compiler.target>
+              
+  
+  
+  </properties>
+        
+  
+  
+  <dependencies>
+                
+    
+    
+    <dependency>
+                        
+      
+      
+      <groupId>junit</groupId>
+                        
+      
+      
+      <artifactId>junit</artifactId>
+                        
+      
+      
+      <version>4.13.1</version>
+                        
+      
+      
+      <scope>test</scope>
+                      
+    
+    
+    </dependency>
+              
+  
+  
+  </dependencies>
+        
+  
+  
+  <build>
+                
+    
+    
+    <plugins>
+                        
+      
+      
+      <plugin>
+                                
+        
+        
+        <groupId>org.apache.maven.plugins</groupId>
+                                
+        
+        
+        <artifactId>maven-resources-plugin</artifactId>
+                                
+        
+        
+        <version>3.3.1</version>
+                                
+        
+        
+        <executions>
+                                        
+          
+          
+          <execution>
+                                                
+            
+            
+            <id>copy-resources-core</id>
+                                                
+            
+            
+            <phase>compile</phase>
+                                                
+            
+            
+            <goals>
+                                                        
+              
+              
+              <goal>copy-resources</goal>
+                                                      
+            
+            
+            </goals>
+                                                
+            
+            
+            <configuration>
+                                                        
+              
+              
+              <outputDirectory>${project.basedir}/converter-core/src/main/resources</outputDirectory>
+                                                        
+              
+              
+              <resources>
+                                                                
+                
+                
+                <resource>
+                                                                        
+                  
+                  
+                  <directory>${project.basedir}/converter-utils/src/main/resources</directory>
+                                                                      
+                
+                
+                </resource>
+                                                              
+              
+              
+              </resources>
+                                                      
+            
+            
+            </configuration>
+                                              
+          
+          
+          </execution>
+                                        
+          
+          
+          <execution>
+                                                
+            
+            
+            <id>copy-resources-app</id>
+                                                
+            
+            
+            <phase>compile</phase>
+                                                
+            
+            
+            <goals>
+                                                        
+              
+              
+              <goal>copy-resources</goal>
+                                                      
+            
+            
+            </goals>
+                                                
+            
+            
+            <configuration>
+                                                        
+              
+              
+              <outputDirectory>${project.basedir}/converter-app/src/main/resources</outputDirectory>
+                                                        
+              
+              
+              <resources>
+                                                                
+                
+                
+                <resource>
+                                                                        
+                  
+                  
+                  <directory>${project.basedir}/converter-utils/src/main/resources</directory>
+                                                                      
+                
+                
+                </resource>
+                                                              
+              
+              
+              </resources>
+                                                      
+            
+            
+            </configuration>
+                                              
+          
+          
+          </execution>
+                                      
+        
+        
+        </executions>
+                              
+      
+      
+      </plugin>
+                      
+    
+    
+    </plugins>
+              
+  
+  
+  </build>
+        
+  
+  
+  <profiles>
+                
+    
+    
+    <profile>
+                        
+      
+      
+      <id>skip-tests</id>
+                        
+      
+      
+      <properties>
+                                
+        
+        
+        <skipTests>true</skipTests>
+                              
+      
+      
+      </properties>
+                      
+    
+    
+    </profile>
+              
+  
+  
+  </profiles>
+      
+  
+  
+  <modules>
+              
+    
+    
+    <module>converter-utils</module>
+              
+    
+    
+    <module>converter-core</module>
+          
+    
+    <module>converter-app</module>
+      
+  </modules>
+    
+
+</project>
